@@ -1,27 +1,30 @@
 #include <stdio.h>
+#include <string.h>
 
-int main() {
+int main(){
 
+int age = 0;
+float gpa = 0.0f;
+char grade = '\0';
+char name[30] = "";
 
- /*
- %d - integer
- %f - float
- %c - character (char)
- %lf - double (%f works for double in output but input requires %lf )
- %s - string/array [eg. char name[] = "Dubs"]
- 
- 
-*/
+printf("Enter your age: ");
+scanf("%d", &age);
 
-// arthimetic operators: = + - * / % ++ --
+printf("Enter your gpa: ");
+scanf("%f", &gpa);
 
-int x = 2;
-int y = 3;
-int z = 0;
+printf("Enter your grade: ");
+scanf(" %c", &grade);
 
-z = x + y;
+getchar();
+printf("Enter your full name: ");
+fgets(name, sizeof(name), stdin );
+name[strlen(name) - 1] = '\0';
 
-printf("%d\n", z);
-
+printf("%d\n", age);
+printf("%.2f\n", gpa);
+printf("%c\n", grade);
+printf("%s\n", name);
 
 }
