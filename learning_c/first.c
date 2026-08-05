@@ -1,40 +1,28 @@
 #include <stdio.h>
-#include <string.h>
+#include <math.h>
 
 int main(){
 
-    // All the variables
-    char adjective_1[50] = "";
-    char adjective_2[50] = "";
-    char adjective_3[50] = "";
-    char noun[50] = "";
-    char verb[50] = "";
+    // All variables 
+double radius = 0.0;
+double area = 0.0;
+double volume = 0.0;
+double surface_area = 0.0;
+const double Pi = 3.14159;
 
-    // All user inputs
-    printf("Enter an adjective (description): ");
-    fgets(adjective_1, sizeof(adjective_1), stdin);
-    adjective_1[strlen(adjective_1) - 1] = '\0';
+// User input
+printf("Enter the radius of circle: ");
+scanf("%lf", &radius);
 
-    printf("Enter a noun (animal of a person): ");
-    fgets(noun, sizeof(noun), stdin);
-    noun[strlen(noun) - 1] = '\0';
+// Calculations
+area = Pi * pow(radius, 2);
+volume = (4/3) * Pi * pow(radius, 3);
+surface_area = 4 * Pi * pow(radius, 2);
 
-    printf("Enter an adjective (description): ");
-    fgets(adjective_2, sizeof(adjective_2), stdin);
-    adjective_2[strlen(adjective_2) - 1] = '\0';
+//Print statements
+printf("Area of circle = %.2lf units.\n", area);
+printf("Volume of sphere of same radius = %.2lf units.\n", volume);
+printf("Surface area of sphere of same radius = %.2lf units.\n", surface_area);
 
-    printf("Enter a verb (ending with -ing): ");
-    fgets(verb, sizeof(verb), stdin);
-    verb[strlen(verb) -1] = '\0';
-
-    printf("Enter an adjective (description): ");
-    fgets(adjective_3, sizeof(adjective_3), stdin);
-    adjective_3[strlen(adjective_3) - 1] ='\0';
-
-    //Final print statement
-    printf("\nToday I went to a %s adoption centre.\nThere I saw %s.\n%s was %s and %s inside the cage.\nEveryone around there was %s. ", adjective_1, noun, noun, adjective_2, verb, adjective_3);
-
-
-    return 0;
 
 }
