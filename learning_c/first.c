@@ -3,26 +3,32 @@
 
 int main(){
 
-    // All variables 
-double radius = 0.0;
-double area = 0.0;
-double volume = 0.0;
-double surface_area = 0.0;
-const double Pi = 3.14159;
+double final_amount = 0.0;
+double principal_amount = 0.0;
+double rate_interest = 0.0;
+double compound_interest = 0.0;
+int years = 0;
+int num_compounds = 0.0;
 
-// User input
-printf("Enter the radius of circle: ");
-scanf("%lf", &radius);
+printf("Enter Initial Investment: ");
+scanf("%lf", &principal_amount);
 
-// Calculations
-area = Pi * pow(radius, 2);
-volume = (4/3) * Pi * pow(radius, 3);
-surface_area = 4 * Pi * pow(radius, 2);
+printf("Enter rate of interest: ");
+scanf("%lf", &rate_interest);
+rate_interest = rate_interest / 100;
 
-//Print statements
-printf("Area of circle = %.2lf units.\n", area);
-printf("Volume of sphere of same radius = %.2lf units.\n", volume);
-printf("Surface area of sphere of same radius = %.2lf units.\n", surface_area);
+printf("Enter number of years: ");
+scanf("%d", &years);
 
+printf("Enter number of compounds per year: ");
+scanf("%d", &num_compounds);
+
+double ToPower = 1 + (rate_interest / num_compounds);
+double PowerValue = pow(ToPower, (num_compounds * years));
+final_amount = principal_amount * PowerValue;
+compound_interest = final_amount - principal_amount;
+
+printf("After %d years, your final amount will be: %.2lf\n", years, final_amount);
+printf("Your total compound interest is: %.2lf\n", compound_interest);
 
 }
