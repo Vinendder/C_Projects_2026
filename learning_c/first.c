@@ -9,7 +9,7 @@ double principal_amount = 0.0;
 double rate_interest = 0.0;
 double compound_interest = 0.0;
 int years = 0;
-int num_compounds = 0.0;
+int num_compounds = 0;
 
 // All user inputs
 printf("Enter Initial Investment: ");
