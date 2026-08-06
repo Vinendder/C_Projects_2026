@@ -1,35 +1,65 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdbool.h>
 
 int main(){
     
-    // Variables for Temperature
-    char choice = '\0';
-    float Fahrenheit = 0.0f;
-    float Celsius = 0.0f;
+    // Variables
+    int age = 0;
+    int college_year = 0;
+    float price_item = 0.0f;
+    bool IsStudent = false;
+    bool IsSenior = false;
 
-    // User input
-    printf("Choose one conversion between the following: \n");
-    printf("C. Fahrenheit to Celsius.\n");
-    printf("F. Celsius to Fahrenheit.\n");
-    printf("Type 'C' or 'F' \n");
-    scanf(" %c", &choice);
+    // Inputs to check conditions
+    printf("Please enter your age: \n");
+    scanf("%d", &age);
+    printf("Please enter your college year: \n");
+    scanf("%d", &college_year);
+    printf("Please enter price of item: \n");
+    scanf("%f", &price_item);
 
-    // Conversion Based on Choice
-    if(choice == 'C'){
-        printf("Type the temperature in Fahrenheit: \n");
-        scanf("%f", &Fahrenheit);
-        Celsius = (Fahrenheit - 32) * (5.0f/9);
-        printf("The temperature in Celsius is %.1f °C\n", Celsius);
+    // Checking and assigning conditions
+    if(age >= 18 && 4 > college_year && college_year >= 3){
+        IsStudent = true;
+        IsSenior = true;
+    }   
+    else if(age >= 18 && college_year < 3){
+        IsStudent = true;
+        IsSenior = false;
     }
-    else if(choice == 'F'){
-        printf("Type the temperature in Celsius: \n");
-        scanf("%f", &Celsius);
-        Fahrenheit = (Celsius * (9.0f/5) + 32);
-        printf("The temperature in Fahrenheit is %.1f °F\n", Fahrenheit);
+    else if(age < 18 && 4 > college_year && college_year >= 3){
+        IsStudent = false;
+        IsSenior = true;
     }
     else{
-        printf("Type Valid Choice (C or F)\n"); // Guard code
+        IsStudent = false;
+        IsSenior = false;
+    }
+
+
+    // Checking conditions
+    if(IsStudent){
+        if(IsSenior){
+            printf("You get a Student and Senior discount of 30%%\n");
+            price_item *= 0.7;
+            printf("Your item cost is %.2f\n", price_item) ;
+        }
+        else{
+            printf("You get a Student discount of 10%%\n");
+            price_item *= 0.9;
+            printf("Your item cost is %.2f\n", price_item);
+        }
+    }
+    else{
+        if(IsSenior){
+            printf("You get a Senior discount of 20%%\n");
+            price_item *= 0.8;
+            printf("Your item cost is %.2f\n", price_item);
+        }
+        else{
+            printf("You get not discount\n");
+            printf("You item cost is %.2f\n", price_item);
+        }
     }
 
 }
