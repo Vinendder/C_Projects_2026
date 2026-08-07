@@ -1,65 +1,48 @@
 #include <stdio.h>
-#include <stdbool.h>
+#include <math.h>
 
 int main(){
     
-    // Variables
-    int age = 0;
-    int college_year = 0;
-    float price_item = 0.0f;
-    bool IsStudent = false;
-    bool IsSenior = false;
+    // Input variables
+    float number_1 = 0.0f;
+    float number_2 = 0.02f;
+    char operation = '\0';
 
-    // Inputs to check conditions
-    printf("Please enter your age: \n");
-    scanf("%d", &age);
-    printf("Please enter your college year: \n");
-    scanf("%d", &college_year);
-    printf("Please enter price of item: \n");
-    scanf("%f", &price_item);
+    // User input
+    printf("Please enter the first number: \n");
+    scanf("%f", &number_1);
 
-    // Checking and assigning conditions
-    if(age >= 18 && 4 > college_year && college_year >= 3){
-        IsStudent = true;
-        IsSenior = true;
-    }   
-    else if(age >= 18 && college_year < 3){
-        IsStudent = true;
-        IsSenior = false;
-    }
-    else if(age < 18 && 4 > college_year && college_year >= 3){
-        IsStudent = false;
-        IsSenior = true;
-    }
-    else{
-        IsStudent = false;
-        IsSenior = false;
+    printf("Enter the operation: \n");
+    printf("+ -> Addition \n - -> subtraction \n * -> multiply \n / -> divide\n" );
+    scanf(" %c", &operation);
+
+    printf("Enter the second number: \n");
+    scanf("%f", &number_2);
+
+    // Calculation
+    switch(operation){
+        case '+': 
+            printf("%.2f + %.2f = %.2f\n", number_1, number_2, number_1 + number_2);
+            break;
+
+        case '-':
+            printf("%.2f - %.2f = %.2f\n", number_1, number_2, number_1 - number_2);
+            break;
+
+        case '*':
+            printf("%.2f x %.2f = %.2f\n", number_1, number_2, number_1 * number_2);
+            break;
+
+        case '/':
+            printf("%.2f / %.2f = %.2f\n", number_1, number_2, number_1 / number_2);
+            break;
+        
+        default:
+            printf("Type valid operation"); // Guard code
+            break;
+
     }
 
-
-    // Checking conditions
-    if(IsStudent){
-        if(IsSenior){
-            printf("You get a Student and Senior discount of 30%%\n");
-            price_item *= 0.7;
-            printf("Your item cost is %.2f\n", price_item) ;
-        }
-        else{
-            printf("You get a Student discount of 10%%\n");
-            price_item *= 0.9;
-            printf("Your item cost is %.2f\n", price_item);
-        }
-    }
-    else{
-        if(IsSenior){
-            printf("You get a Senior discount of 20%%\n");
-            price_item *= 0.8;
-            printf("Your item cost is %.2f\n", price_item);
-        }
-        else{
-            printf("You get not discount\n");
-            printf("You item cost is %.2f\n", price_item);
-        }
-    }
+    return 0;
 
 }
