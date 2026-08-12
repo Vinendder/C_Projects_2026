@@ -1,0 +1,3 @@
+# Compiled binaries and debug symbols
+*.dSYM/
+NumGuess/numgame
